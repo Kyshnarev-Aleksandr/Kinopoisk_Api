@@ -35,10 +35,10 @@ public class Film_Activity_Click extends AppCompatActivity {
         posterImage = findViewById(R.id.poster_image);
 
         Picasso.get().load( poster).into(posterImage);
-        premiere.setText("Примьера: "+premiere_world);
+        premiere.setText("Примьера: "+ premiere_world);
         Year.setText("Год: " + year);
         desc.setText(description);
-        kinopoisk.setText("Рейтинг от Кинопойск: "+rating);
+        kinopoisk.setText("Рейтинг от Кинопоиск: "+rating);
 
 
 

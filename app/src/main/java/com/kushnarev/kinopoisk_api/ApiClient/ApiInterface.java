@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("movies/all/page/666/token/4652a1a2d4f964fb228700eb68c27ac6")
+    @GET("movies/all/page/666/token/2c5e05554766b5f32bb8890e282fad9e")
     Call<JSONResponse> getMovies();
 
 }

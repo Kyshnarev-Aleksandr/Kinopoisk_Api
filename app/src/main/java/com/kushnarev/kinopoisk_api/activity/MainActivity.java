@@ -1,6 +1,8 @@
 package com.kushnarev.kinopoisk_api.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import com.kushnarev.kinopoisk_api.ApiClient.RetrofitClient;
 import com.kushnarev.kinopoisk_api.R;
+import com.kushnarev.kinopoisk_api.ViewModel.MovieViewModel;
 import com.kushnarev.kinopoisk_api.adapter.MoviesAdapter;
 import com.kushnarev.kinopoisk_api.pojo.Film;
 import com.kushnarev.kinopoisk_api.pojo.JSONResponse;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     MoviesAdapter adapter;
     List<Film> filmList = new ArrayList<>();
 
+    MovieViewModel movieViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,23 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycleView);
 
-        RetrofitClient.getInstance().getMovie().enqueue(new Callback<JSONResponse>() {
+        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
+        movieViewModel.getMovie();
+
+        movieViewModel.mutableLiveData.observe(this, new Observer<JSONResponse>() {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-
-                JSONResponse jsonResponse = response.body();
+            public void onChanged(JSONResponse jsonResponse) {
                 filmList = new ArrayList<>(Arrays.asList(jsonResponse.getMovies()));
-
                 putDataInToRecycleView(filmList);
 
             }
-
-            @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "оооошшшииибкааааа" + t, Toast.LENGTH_SHORT).show();
-            }
         });
-
 
     }
 
