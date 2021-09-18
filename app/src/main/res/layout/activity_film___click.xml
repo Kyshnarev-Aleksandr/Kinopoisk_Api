@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/purple_700"
+    tools:context=".activity.Film_Activity_Click">
+
+    <ImageView
+        android:id="@+id/poster_image"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="25sp"/>
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fkjbgldkfjgbjdnfgbknkfngbfkngb"
+        android:textColor="@color/white"
+        android:layout_below="@+id/poster_image"
+        android:layout_marginTop="15dp"
+        android:textSize="19dp"/>
+
+    <TextView
+        android:id="@+id/premiere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dfgbdgbd"
+        android:textColor="@color/white"
+        android:layout_toEndOf="@id/poster_image"
+        android:layout_marginStart="25sp"
+
+        />
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Год:2018"
+        android:textColor="@color/white"
+        android:layout_toEndOf="@id/poster_image"
+        android:layout_marginStart="25sp"
+        android:layout_below="@id/premiere"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/kinopoisk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Рейтинг: 5.8"
+        android:textColor="@color/white"
+        android:layout_toEndOf="@id/poster_image"
+        android:layout_marginStart="25sp"
+        android:layout_below="@id/year"
+        android:layout_marginTop="15dp"/>
+
+
+
+
+
+
+
+</RelativeLayout>
